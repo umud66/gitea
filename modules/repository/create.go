@@ -89,11 +89,12 @@ func CreateRepository(doer, u *user_model.User, opts models.CreateRepoOptions) (
 			//
 			// Previously Gitea would just delete and start afresh - this was naughty.
 			// So we will now fail and delegate to other functionality to adopt or delete
-			log.Error("Files already exist in %s and we are not going to adopt or delete.", repoPath)
-			return repo_model.ErrRepoFilesAlreadyExist{
+			//log.Error("Files already exist in %s and we are not going to adopt or delete.", repoPath)
+			/*return repo_model.ErrRepoFilesAlreadyExist{
 				Uname: u.Name,
 				Name:  repo.Name,
-			}
+			}*/
+			return nil
 		}
 
 		if err = initRepository(ctx, repoPath, doer, repo, opts); err != nil {
