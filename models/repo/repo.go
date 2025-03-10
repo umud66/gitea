@@ -488,7 +488,8 @@ func (repo *Repository) IsGenerated() bool {
 
 // RepoPath returns repository path by given user and repository name.
 func RepoPath(userName, repoName string) string { //revive:disable-line:exported
-	return filepath.Join(user_model.UserPath(userName), strings.ToLower(repoName)+".git")
+	// return filepath.Join(user_model.UserPath(userName), strings.ToLower(repoName)+".git")
+	return filepath.Join(user_model.UserPath(userName), repoName+".git")
 }
 
 // RepoPath returns the repository path
